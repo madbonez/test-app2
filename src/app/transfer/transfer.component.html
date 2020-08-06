@@ -1,0 +1,18 @@
+<mat-card>
+  <h1>Перевод с карты на карту</h1>
+  <mat-card-content>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link [routerLink]="'/card2card'"
+         [active]="activeLink === '/card2card'">
+        Создание перевода
+      </a>
+      <a mat-tab-link [routerLink]="'/history'"
+         [active]="activeLink === '/history'">
+        История
+      </a>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+  </mat-card-content>
+</mat-card>

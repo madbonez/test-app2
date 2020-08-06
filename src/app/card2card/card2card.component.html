@@ -1,0 +1,74 @@
+<div class="cards-container" [ngClass]="{'column': isSmallScreen}">
+  <div class="card-mockup">
+    <div class="row head">
+      Карта плательщика
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="card-holder">
+        <input matInput placeholder="IVAN IVANOV">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-date">
+        <mat-select placeholder="01">
+          <mat-option value="01">01</mat-option>
+          <mat-option value="01">01</mat-option>
+          <mat-option value="01">01</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-date">
+        <mat-select placeholder="22">
+          <mat-option value="01">01</mat-option>
+          <mat-option value="01">01</mat-option>
+          <mat-option value="01">01</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-icon class="forward-icon" *ngIf="!isSmallScreen">arrow_forward</mat-icon>
+  <mat-icon class="down-icon" *ngIf="isSmallScreen">arrow_downward</mat-icon>
+
+  <div class="card-mockup">
+    <div class="row head">
+      Карта получателя
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="card-num">
+        <input matInput maxlength="4" placeholder="0000">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+
+<div class="total">
+  <mat-form-field>
+    <mat-label style="color: white"> Введите сумму </mat-label>
+    <input matInput type="number" placeholder="5000">
+  </mat-form-field>
+  <button mat-fab color="primary" matTooltip="Отправить">
+    <mat-icon>send</mat-icon>
+  </button>
+</div>
