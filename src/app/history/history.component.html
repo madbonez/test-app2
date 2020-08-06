@@ -1,1 +1,41 @@
-<p>history works!</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef  [ngClass]="'customWidthClass'"> № </mat-header-cell>
+    <mat-cell *matCellDef="let element" [ngClass]="'customWidthClass'"> {{element.index}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cardSender">
+    <mat-header-cell *matHeaderCellDef> Карта плательщика </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.cardSender}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cardReceiver">
+    <mat-header-cell *matHeaderCellDef> Карта получателя </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.cardReceiver}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <mat-header-cell *matHeaderCellDef> Сумма </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Дата выполнения </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Действие </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button>
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
