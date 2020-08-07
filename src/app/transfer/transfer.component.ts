@@ -9,7 +9,7 @@ import {filter} from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TransferComponent implements OnInit {
-  activeLink: string;
+  activeLink = '/card2card';
 
   constructor(private router: Router, private cd: ChangeDetectorRef) {
   }
@@ -17,7 +17,7 @@ export class TransferComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.activeLink = event.url;
+        this.activeLink = window.location.href;
         this.cd.markForCheck();
       });
   }
