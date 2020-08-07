@@ -1,17 +1,19 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {BreakpointObserver} from '@angular/cdk/layout';
+import {TransfersQuery} from '../store/transfers.query';
+import {TransferService} from '../store/transfers.service';
 
 const ELEMENT_DATA: any[] = [
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'}
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {id: '123lkjasd1231', cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'}
 ];
 
 @Component({
@@ -32,7 +34,8 @@ export class HistoryComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   private isSmallScreen: boolean;
 
-  constructor(private breakpointObserver: BreakpointObserver, private cd: ChangeDetectorRef) { }
+  constructor(private breakpointObserver: BreakpointObserver, private cd: ChangeDetectorRef, public transfersQuery: TransfersQuery,
+              private transferService: TransferService) { }
 
   @HostBinding('@slideUpDown') get value(): boolean {
     return true;
@@ -50,4 +53,7 @@ export class HistoryComponent implements OnInit {
     });
   }
 
+  deleteItem(id: string): void {
+    this.transferService.deleteById(id);
+  }
 }

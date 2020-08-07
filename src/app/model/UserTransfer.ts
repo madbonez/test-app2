@@ -1,6 +1,12 @@
 export interface UserTransfer {
-  date: Date;
+  id?: string;
+  date?: Date;
   total: number;
-  cardReceiver: number;
-  cardSender: number;
+  cardHolder: string;
+  validYear: string;
+  validMonth: string;
+  cardReceiver: number[];
+  cardReceiverView: string;
+  cardSender: number[];
+  cardSenderView: string;
 }

@@ -3,11 +3,11 @@
   <mat-card-content>
     <nav mat-tab-nav-bar>
       <a mat-tab-link [routerLink]="'/card2card'"
-         [active]="activeLink === '/card2card'">
+         [active]="activeLink?.indexOf('/card2card') !== -1">
         Создание перевода
       </a>
       <a mat-tab-link [routerLink]="'/history'"
-         [active]="activeLink === '/history'">
+         [active]="activeLink?.indexOf('/history') !== -1">
         История
       </a>
     </nav>

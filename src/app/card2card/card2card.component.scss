@@ -1,4 +1,4 @@
-:host {
+form {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
@@ -52,6 +52,7 @@
   justify-content: center;
 
   &.head {
+    justify-self: flex-start;
     margin-bottom: 10px;
     color: #b0bec5;
   }
@@ -78,7 +79,12 @@ input[type=number] {
   width: 55px;
   margin-left: 5px;
 }
+
 .card-holder {
   width: 115px;
   margin-left: 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

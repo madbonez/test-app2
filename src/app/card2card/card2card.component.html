@@ -1,74 +1,96 @@
-<div class="cards-container" [ngClass]="{'column': isSmallScreen}">
-  <div class="card-mockup">
-    <div class="row head">
-      Карта плательщика
+<form [formGroup]="card2cardForm" (ngSubmit)="onSubmit($event)" #formDirective @slideUpDown>
+  <div class="cards-container" [ngClass]="{'column': isSmallScreen}">
+    <div class="card-mockup">
+      <div class="row head">
+        Карта плательщика
+      </div>
+      <div class="row" formGroupName="senderCardNumber">
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="senderNum1" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="senderNum2" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="senderNum3" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="senderNum4" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline" class="card-holder">
+          <input matInput class="uppercase" placeholder="IVAN IVANOV" formControlName="cardHolder"
+                 (keypress)="cardHolderKeypress($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-date">
+          <mat-select placeholder="01" formControlName="validMonth">
+            <mat-option value="01">01</mat-option>
+            <mat-option value="02">02</mat-option>
+            <mat-option value="03">03</mat-option>
+            <mat-option value="04">04</mat-option>
+            <mat-option value="05">05</mat-option>
+            <mat-option value="06">06</mat-option>
+            <mat-option value="07">07</mat-option>
+            <mat-option value="08">08</mat-option>
+            <mat-option value="09">09</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="11">11</mat-option>
+            <mat-option value="12">12</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-date">
+          <mat-select placeholder="20" formControlName="validYear">
+            <mat-option value="20">20</mat-option>
+            <mat-option value="21">21</mat-option>
+            <mat-option value="22">22</mat-option>
+            <mat-option value="23">23</mat-option>
+            <mat-option value="24">24</mat-option>
+            <mat-option value="25">25</mat-option>
+            <mat-option value="26">26</mat-option>
+            <mat-option value="27">27</mat-option>
+            <mat-option value="28">28</mat-option>
+            <mat-option value="29">29</mat-option>
+            <mat-option value="30">30</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="row">
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-    </div>
-    <div class="row">
-      <mat-form-field appearance="outline" class="card-holder">
-        <input matInput placeholder="IVAN IVANOV">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-date">
-        <mat-select placeholder="01">
-          <mat-option value="01">01</mat-option>
-          <mat-option value="01">01</mat-option>
-          <mat-option value="01">01</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-date">
-        <mat-select placeholder="22">
-          <mat-option value="01">01</mat-option>
-          <mat-option value="01">01</mat-option>
-          <mat-option value="01">01</mat-option>
-        </mat-select>
-      </mat-form-field>
+
+    <mat-icon class="forward-icon" color="accent" *ngIf="!isSmallScreen">arrow_forward</mat-icon>
+    <mat-icon class="down-icon" color="accent" *ngIf="isSmallScreen">arrow_downward</mat-icon>
+
+    <div class="card-mockup">
+      <div class="row head">
+        Карта получателя
+      </div>
+      <div class="row" formGroupName="receiverCardNumber">
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="receiverNum1" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="receiverNum2" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="receiverNum3" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="card-num">
+          <input matInput maxlength="4" placeholder="0000" formControlName="receiverNum4" (keypress)="cardNumInput($event)">
+        </mat-form-field>
+      </div>
     </div>
   </div>
 
-  <mat-icon class="forward-icon" color="accent" *ngIf="!isSmallScreen">arrow_forward</mat-icon>
-  <mat-icon class="down-icon" color="accent" *ngIf="isSmallScreen">arrow_downward</mat-icon>
 
-  <div class="card-mockup">
-    <div class="row head">
-      Карта получателя
-    </div>
-    <div class="row">
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="card-num">
-        <input matInput maxlength="4" placeholder="0000">
-      </mat-form-field>
-    </div>
+  <div class="total">
+    <mat-form-field>
+      <mat-label style="color: white"> Введите сумму </mat-label>
+      <input matInput type="number" placeholder="5000" formControlName="total">
+    </mat-form-field>
+    <button mat-fab color="primary" matTooltip="Отправить" type="submit">
+      <mat-icon>send</mat-icon>
+    </button>
   </div>
-</div>
 
-
-<div class="total">
-  <mat-form-field>
-    <mat-label style="color: white"> Введите сумму </mat-label>
-    <input matInput type="number" placeholder="5000">
-  </mat-form-field>
-  <button mat-fab color="primary" matTooltip="Отправить">
-    <mat-icon>send</mat-icon>
-  </button>
-</div>
+</form>
