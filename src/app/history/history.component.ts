@@ -3,15 +3,15 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {BreakpointObserver} from '@angular/cdk/layout';
 
 const ELEMENT_DATA: any[] = [
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
-  {index: 1, cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'}
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'},
+  {cardSender: '1234123412341234', cardReceiver: '1234123412341234', total: 5000, date: 'date'}
 ];
 
 @Component({
@@ -31,7 +31,6 @@ export class HistoryComponent implements OnInit {
   displayedColumns: string[] = ['index', 'cardSender', 'cardReceiver', 'total', 'date', 'action'];
   dataSource = ELEMENT_DATA;
   private isSmallScreen: boolean;
-
 
   constructor(private breakpointObserver: BreakpointObserver, private cd: ChangeDetectorRef) { }
 

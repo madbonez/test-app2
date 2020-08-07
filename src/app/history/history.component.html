@@ -1,7 +1,7 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+<mat-table [dataSource]="dataSource">
   <ng-container matColumnDef="index">
     <mat-header-cell *matHeaderCellDef  [ngClass]="'customWidthClass'"> № </mat-header-cell>
-    <mat-cell *matCellDef="let element" [ngClass]="'customWidthClass'"> {{element.index}} </mat-cell>
+    <mat-cell *matCellDef="let element; let i = index;" [ngClass]="'customWidthClass'">{{i + 1}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="cardSender">
